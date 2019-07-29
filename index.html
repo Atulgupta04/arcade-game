@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Arcade Game</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/stylesheet.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div>
+      <h2>Arcade Game</h2>
+      <ul>
+        <li id="score" class="score">Score: 0</li>
+        <li><button class="btn btn-primary restart">Restart</button></li>
+      </ul>
+    </div>
+    <div id="modal" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+        <div class="form-group">
+          <div class="row">
+            <h4 class="col-12">Pick a character</h4>
+            <div class="col-4 form-check">
+              <input type="radio" name="chars">
+              <img src="images/char-boy.png">
+            </div>
+            <div class="col-4 form-check" >
+          <input  type="radio" name="chars">
+              <img src="images/char-horn-girl.png"></div>
+            <div class="col-4 form-check">
+              <input  type="radio" name="chars">
+              <img src="images/char-pink-girl.png">
+            </div>
+          </div>
+          <div class="row mt-5 justify-content-center" >
+            <h4 class="col-12">Difficulty</h4>
+            <div class="col-4 form-check">
+              <input class="form-check-input" type="radio" name="diff">
+              <label  class="form-label">Normal</label>
+            </div>
+            <div class="col-4 form-check" >
+            <input class="form-check-input" type="radio" name="diff">
+              <label  class="form-label">Hard</label>
+            </div>
+            <div class="col-4 form-check">
+              <input class="form-check-input" type="radio" name="diff">
+              <label  class="form-label">Do Not Try</label>
+            </div>
+            <button id="startButton" type="button" class="btn btn-primary" data-dismiss="modal">Play</button>
+          </div>
+      </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="modalwin" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <h4 class="mt-5 mb-5">Congratulations you won!</h4>
+          <h4 class="mt-5 mb-5 score">Score: 0</h4>
+          <button id="playAgain" class="btn btn-primary restart" type="button"data-dismiss="modal">Play again</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="scripts/resources.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/engine.js"></script>
+</body>
+</html>
