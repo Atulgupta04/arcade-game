@@ -126,12 +126,11 @@ var Engine = (function(global) {
 
     }
     /* This is called by the update function and loops through all of the
-     * objects within your allEnemies array as defined in app.js and calls
-     * their update() methods. It will then call the update function for your
-     * player object. These update methods should focus purely on updating
-     * the data/properties related to the object. Do your drawing in your
-     * render methods.
-     */
+       objects within your allEnemies array as defined in app.js and calls
+       their update() methods. It will then call the update function for your
+       player object. These update methods should focus purely on updating
+       the data/properties related to the object. Do your drawing in your
+       render methods. */
     function updateEntities(dt, diffic) {
 
         allEnemies.forEach(function(enemy) {
@@ -143,15 +142,13 @@ var Engine = (function(global) {
     }
 
     /* This function initially draws the "game level", it will then call
-     * the renderEntities function. Remember, this function is called every
-     * game tick (or loop of the game engine) because that's how games work -
-     * they are flipbooks creating the illusion of animation but in reality
-     * they are just drawing the entire screen over and over.
-     */
+       the renderEntities function. Remember, this function is called every
+       game tick (or loop of the game engine) because that's how games work -
+       they are flipbooks creating the illusion of animation but in reality
+       they are just drawing the entire screen over and over. */
     function render() {
         /* This array holds the relative URL to the image used
-         * for that particular row of the game level.
-         */
+           for that particular row of the game level */
         var rowImages = [
                 'images/water-block.png',   // Top row is water
                 'images/stone-block.png',   // Row 1 of 3 of stone
@@ -168,18 +165,16 @@ var Engine = (function(global) {
         ctx.clearRect(0,0,canvas.width,canvas.height)
 
         /* Loop through the number of rows and columns we've defined above
-         * and, using the rowImages array, draw the correct image for that
-         * portion of the "grid"
-         */
+           and, using the rowImages array, draw the correct image for that
+           portion of the "grid" */
         for (row = 0; row < numRows; row++) {
             for (col = 0; col < numCols; col++) {
                 /* The drawImage function of the canvas' context element
-                 * requires 3 parameters: the image to draw, the x coordinate
-                 * to start drawing and the y coordinate to start drawing.
-                 * We're using our Resources helpers to refer to our images
-                 * so that we get the benefits of caching these images, since
-                 * we're using them over and over.
-                 */
+                   requires 3 parameters: the image to draw, the x coordinate
+                   to start drawing and the y coordinate to start drawing.
+                   We're using our Resources helpers to refer to our images
+                   so that we get the benefits of caching these images, since
+                   we're using them over and over. */
                 ctx.drawImage(Resources.get(rowImages[row]), col * 101, row * 83);
             }
         }
@@ -188,13 +183,11 @@ var Engine = (function(global) {
     }
 
     /* This function is called by the render function and is called on each game
-     * tick. Its purpose is to then call the render functions you have defined
-     * on your enemy and player entities within app.js
-     */
+       tick. Its purpose is to then call the render functions you have defined
+       on your enemy and player entities within app.js */
     function renderEntities() {
         /* Loop through all of the objects within the allEnemies array and call
-         * the render function you have defined.
-         */
+           the render function you have defined. */
         allEnemies.forEach(function(enemy) {
             enemy.render();
         });
@@ -204,11 +197,9 @@ var Engine = (function(global) {
     }
 
     /* This function does nothing but it could have been a good place to
-     * handle game reset states - maybe a new game menu or a game over screen
-     * those sorts of things. It's only called once by the init() method.
-     */
+       handle game reset states - maybe a new game menu or a game over screen
+       those sorts of things. It's only called once by the init() method. */
     function reset() {
-        // noop
 
         const restButton = document.querySelectorAll('.restart');
 
@@ -227,9 +218,8 @@ var Engine = (function(global) {
 
 
     /* Go ahead and load all of the images we know we're going to need to
-     * draw our game level. Then set init as the callback method, so that when
-     * all of these images are properly loaded our game will start.
-     */
+       draw our game level. Then set init as the callback method, so that when
+       all of these images are properly loaded our game will start. */
     Resources.load([
         'images/stone-block.png',
         'images/water-block.png',
@@ -245,8 +235,7 @@ var Engine = (function(global) {
     Resources.onReady(init);
 
     /* Assign the canvas' context object to the global variable (the window
-     * object when run in a browser) so that developers can use it more easily
-     * from within their app.js files.
-     */
+       object when run in a browser) so that developers can use it more easily
+       from within their app.js files. */
     global.ctx = ctx;
 })(this);
